@@ -76,9 +76,9 @@ UPDATE_EVERY = 4        # how often to update the network```
 
 If the agent achieves the score over 13, the problem is deemed to be solved. After tuning of the parameters, I could solve the problem in **687  episodes**. The plot below shows the rewards per episode and moving average over last 100 episodes. 
 
-![plot of rewards](./data/plot.jpg)
+![plot of rewards](data/plot.jpg)
 
-Trained model can be found [here](./data/model_weights.pth).
+Trained model can be found [here](data/model_weights.pth).
 
 ## Ideas for Future Work
 
