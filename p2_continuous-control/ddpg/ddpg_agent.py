@@ -51,18 +51,18 @@ class Agent():
         # Replay memory
         self.memory = ReplayBuffer(action_size, BUFFER_SIZE, BATCH_SIZE, random_seed)
     
-    def step(self, state, action, reward, next_state, done):
+    def step(self, state, action, reward, next_state, done, timestep):
         """Save experience in replay memory, and use random sample from buffer to learn."""
         # Save experience / reward
         for i in range(20):
             self.memory.add(state[i], action[i], reward[i], next_state[i], done[i])
 
-#         # Learn, if enough samples are available in memory
-#         if timestep%20 == 0:
-        if len(self.memory) > BATCH_SIZE:
-            for i in range(10):
-                experiences = self.memory.sample()
-                self.learn(experiences, GAMMA)
+        # Learn, if enough samples are available in memory
+        if timestep%20 == 0:
+            if len(self.memory) > BATCH_SIZE:
+                for i in range(10):
+                    experiences = self.memory.sample()
+                    self.learn(experiences, GAMMA)
 
     def act(self, state, add_noise=True):
         """Returns actions for given state as per current policy."""
